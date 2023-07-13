@@ -36,3 +36,4 @@
 
 ### Note : 
  For better performance and results use it with JS files  
+> The PIISeeker Template is intended for legitimate security testing and vulnerability assessment purposes only.
