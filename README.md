@@ -21,3 +21,18 @@
 8. Passport Number Exposure
  
 9. Vehicle Registration Number Exposure
+
+### Usage
+
+#### With list
+```
+./nuclei -l LIST -t PIISeeker.yaml
+
+```
+#### With URL
+
+```
+./nuclei -u URL -t PIISeeker.yaml
+
+```
+
