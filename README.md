@@ -27,12 +27,12 @@
 #### With list
 ```
 ./nuclei -l LIST -t PIISeeker.yaml
-
 ```
 #### With URL
 
 ```
 ./nuclei -u URL -t PIISeeker.yaml
-
 ```
 
+### Note : 
+ For better performance and results use it with JS files  
