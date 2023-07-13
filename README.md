@@ -18,6 +18,6 @@
  
 7. Driver's License Number Exposure
 
-8.Passport Number Exposure
-
+8. Passport Number Exposure
+ 
 9. Vehicle Registration Number Exposure
