@@ -3,6 +3,32 @@ info:
   author: alienisgrinding
   description: Template to detect specific PII elements leak
 
+http:
+  - method: GET
+    path:
+      - '{{BaseURL}}'
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Username :"
+          - "Name:"
+           - "Username = "
+          - "Name ="
+      - type: status
+        status:
+          - 200
+requests:
+  - name: SSN Exposure
+     path:
+      - '{{BaseURL}}'
+    method: GET
+    matchers:
+      - type: regex
+        part: body
+        regex: '\b[0-9]{3}-[0-9]{2}-[0-9]{4}\b'
 requests:
   - name: SSN Exposure
      path:
@@ -15,7 +41,7 @@ requests:
     tags:
       - pii
       - ssn
-       matchers:
+       
       - type: word
         part: body
         words:
@@ -23,7 +49,7 @@ requests:
           - "Social Security Number:"
            - "SSN = "
           - "Social Security Number ="
-
+requests:
   - name: Date of Birth Exposure
       path:
       - '{{BaseURL}}'
@@ -40,7 +66,7 @@ requests:
     tags:
       - pii
       - dob
-       matchers:
+       
       - type: word
         part: body
         words:
@@ -48,7 +74,7 @@ requests:
           - "DOB:"
            - "dob: "
           - ""Date of Birthday"
-
+requests:
   - name: Address Exposure
       path:
       - '{{BaseURL}}'
@@ -64,7 +90,7 @@ requests:
     tags:
       - pii
       - address
-       matchers:
+       
       - type: word
         part: body
         words:
@@ -72,7 +98,7 @@ requests:
           - "Address ="
            - "ADR: "
           - "ADDRESS :"
-
+requests:
   - name: Financial Information Exposure
       path:
       - '{{BaseURL}}'
@@ -88,7 +114,7 @@ requests:
     tags:
       - pii
       - financial
-      matchers:
+      
       - type: word
         part: body
         words:
@@ -96,7 +122,7 @@ requests:
           - "financial ="
            - "Financial Information: "
           - "Financial Information ="
-
+requests:
   - name: National Identification Number Exposure
       path:
       - '{{BaseURL}}'
@@ -112,7 +138,7 @@ requests:
     tags:
       - pii
       - national_id
-       matchers:
+       
       - type: word
         part: body
         words:
@@ -120,7 +146,7 @@ requests:
           - "National Identification Number ="
            - "NIN : "
           - "NIN ="
-
+requests:
   - name: Driver's License Number Exposure
       path:
       - '{{BaseURL}}'
@@ -136,14 +162,14 @@ requests:
     tags:
       - pii
       - driver_license
-       matchers:
+       
       - type: word
         part: body
         words:
           - "driver_license:"
           - "Driver License ="
            - "DL : "
-
+requests:
   - name: Passport Number Exposure
       path:
       - '{{BaseURL}}'
@@ -159,13 +185,13 @@ requests:
     tags:
       - pii
       - passport
-       matchers:
+      
       - type: word
         part: body
         words:
           - "Passport Number:"
           - "Driver License ="
-
+requests:
   - name: Vehicle Registration Number Exposure
       path:
       - '{{BaseURL}}'
@@ -181,7 +207,7 @@ requests:
     tags:
       - pii
       - vehicle_registration
-       matchers:
+      condition: and
       - type: word
         part: body
         words:
